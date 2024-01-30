@@ -50,6 +50,7 @@
 	
 	
 	<?php 
+	
 	// top header
 		include('./resources/views/layouts/top-header.php');
  	//navigation
@@ -57,10 +58,16 @@
 	//banner 
 		include('./resources/views/layouts/banner.php');
 		
-		if(isset($_GET['quanly'])=='danhmuc'){
-			// chi tiết sản phẩm
-				include('./danhmuc.php');
-		}elseif(isset($_GET['quanly'])=='chitietsp'){
+		if(isset($_GET['quanly'])){
+			$danhmuc=$_GET['quanly'];
+		}
+		else{
+			$danhmuc="";
+		}
+		if($danhmuc=='danhmuc'){
+			// danh mục sản phẩm	
+			 include('./danhmuc.php');
+		}elseif($danhmuc=='chitietsp'){
 			include('./resources/views/layouts/products/detail-product.php');
 		}
 		else{
@@ -186,6 +193,29 @@
 	<script src="./js/scroll.js"></script>
 	<!-- //scroll seller -->
 
+	<!-- imagezoom -->
+    <script src="./js/imagezoom.js"></script>
+    <!-- //imagezoom -->
+
+    <!-- flexslider -->
+    <link
+      rel="stylesheet"
+      href="css/flexslider.css"
+      type="text/css"
+      media="screen"
+    />
+
+    <script src="./js/jquery.flexslider.js"></script>
+    <script>
+      // Can also be used with $(document).ready()
+      $(window).load(function () {
+        $(".flexslider").flexslider({
+          animation: "slide",
+          controlNav: "thumbnails",
+        });
+      });
+    </script>
+    <!-- //FlexSlider-->
 	<!-- smoothscroll -->
 	<script src="./js/SmoothScroll.min.js"></script>
 	<!-- //smoothscroll -->
